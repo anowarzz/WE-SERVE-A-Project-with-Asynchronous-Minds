@@ -4,6 +4,7 @@ import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import { Button } from "@mui/material";
 import { Stack } from "@mui/system";
+import ServicesSlider from "@/HomePage/ServiceSlider/ServiceSlider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,9 @@ export default function Home() {
         <Button variant="outlined">new button arif khan</Button>
         <Button variant="outlined">new button 2.0 Shoumik </Button>
     </Stack>
+
+
+  <ServicesSlider />
       </main>
     </>
   );
