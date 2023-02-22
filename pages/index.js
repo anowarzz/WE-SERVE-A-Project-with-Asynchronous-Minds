@@ -24,6 +24,7 @@ export default function Home() {
         <Button variant="contained">Contained</Button>
         <Button variant="outlined">Outlined</Button>
         <Button variant="outlined">new button added shanewaz</Button>
+        <Button variant="outlined">new arif khan</Button>
     </Stack>
       </main>
     </>
