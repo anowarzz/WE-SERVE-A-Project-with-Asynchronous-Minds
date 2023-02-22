@@ -5,6 +5,8 @@ import styles from "@/styles/Home.module.css";
 import { Button } from "@mui/material";
 import { Stack } from "@mui/system";
 import ServicesSlider from "@/HomePage/ServiceSlider/ServiceSlider";
+import ContactForm from "@/HomePage/ContactForm/ContactForm";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,6 +33,7 @@ export default function Home() {
 
 
   <ServicesSlider />
+  <ContactForm></ContactForm>
       </main>
     </>
   );
