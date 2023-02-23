@@ -20,10 +20,12 @@ import AnimateLog from "../assets/Login/login-animate.gif";
 import AnimateLock from "../assets/Login/login.gif";
 import Image from "next/image";
 import GoogleIcon from "@mui/icons-material/Google";
+import Link from "next/link";
 
 const Register = () => {
   const [userInfo, setUserInfo] = useState({
     name: "",
+    orgName: "",
     email: "",
     accountType: "",
     password: "",
@@ -31,7 +33,7 @@ const Register = () => {
     terms: false,
   });
 
-//   Collecting the input value of Register form
+  //   Collecting the input value of Register form
 
   const handleInputChange = (event) => {
     setUserInfo((prevState) => ({
@@ -58,7 +60,7 @@ const Register = () => {
         padding: "2rem",
       }}
     >
-      <Stack width="450px" margin="auto">
+      <Stack width="550px" margin="auto">
         <Paper
           sx={{
             paddingTop: "1rem",
@@ -68,13 +70,18 @@ const Register = () => {
           }}
         >
           <Stack justifyContent="center" alignItems="center">
-            <Image priority src={AnimateLock} alt="icon" maxwidth="90" height="90" />
+            <Image
+              priority
+              src={AnimateLock}
+              alt="icon"
+              maxwidth="90"
+              height="90"
+            />
 
             <Typography
               variant="h4"
               textAlign="center"
               fontWeight="bold"
-              marginBottom="2rem"
               paddingBottom="1rem"
             >
               Register
@@ -83,15 +90,34 @@ const Register = () => {
 
           <form onSubmit={handleRegisterInfo}>
             <Stack spacing={3}>
-              <TextField
-                id="name"
-                type="text"
-                label="Name"
-                variant="standard"
-                size="small"
-                autoComplete="off"
-                onChange={(e) => setUserInfo({...userInfo, name: e.target.value})}
-              />
+              <Stack
+                justifyContent="space-between"
+                direction={{ xs: "column", md: "row" }}
+                spacing={{ xs: 2 }}
+              >
+                <TextField
+                  id="name"
+                  type="text"
+                  label="Full Name"
+                  variant="standard"
+                  size="small"
+                  autoComplete="off"
+                  onChange={(e) =>
+                    setUserInfo({ ...userInfo, name: e.target.value })
+                  }
+                />
+                <TextField
+                  id="org-name"
+                  type="text"
+                  label="Organization Name"
+                  variant="standard"
+                  size="small"
+                  autoComplete="off"
+                  onChange={(e) =>
+                    setUserInfo({ ...userInfo, orgName: e.target.value })
+                  }
+                />
+              </Stack>
 
               <TextField
                 id="email"
@@ -100,15 +126,19 @@ const Register = () => {
                 variant="standard"
                 size="small"
                 autoComplete="off"
-                onChange={(e) => setUserInfo({...userInfo, email: e.target.value})}
+                onChange={(e) =>
+                  setUserInfo({ ...userInfo, email: e.target.value })
+                }
               />
               <FormControl variant="standard">
-                <InputLabel id="account-type">Choose User Type</InputLabel>
+                <InputLabel id="account-type">Choose Your Role</InputLabel>
                 <Select
                   labelId="account-type"
                   id="account-type"
-                  value= {userInfo?.accountType}
-                  onChange={(e) => setUserInfo({...userInfo, accountType: e.target.value})}
+                  value={userInfo?.accountType}
+                  onChange={(e) =>
+                    setUserInfo({ ...userInfo, accountType: e.target.value })
+                  }
                   label=""
                 >
                   <MenuItem value="">{/* <em>None</em> */}</MenuItem>
@@ -118,14 +148,20 @@ const Register = () => {
                 </Select>
               </FormControl>
 
-              <Stack direction="row" spacing={3}>
+              <Stack
+                justifyContent="space-between"
+                direction={{ xs: "column", md: "row" }}
+                spacing={{ xs: 1, sm: 2, md: 3 }}
+              >
                 <TextField
                   id="password"
                   label="Password"
                   type="password"
                   variant="standard"
                   size="small"
-                  onChange={(e) => setUserInfo({...userInfo, password: e.target.value})}
+                  onChange={(e) =>
+                    setUserInfo({ ...userInfo, password: e.target.value })
+                  }
                 />
                 <TextField
                   id="confirm-password"
@@ -133,13 +169,43 @@ const Register = () => {
                   type="password"
                   variant="standard"
                   size="small"
-                  onChange={(e) => setUserInfo({...userInfo, confirmPassword: e.target.value})}
+                  onChange={(e) =>
+                    setUserInfo({
+                      ...userInfo,
+                      confirmPassword: e.target.value,
+                    })
+                  }
                 />
-
               </Stack>
-            <FormControlLabel label={`I accept the terms and conditions`} control={ <Checkbox /> } />
+              {/* <FormControlLabel label={`I accept the terms and conditions`} control={ <Checkbox /> } />
+               */}
+              <Stack
+                direction="row"
+                justifyContent="start"
+                alignItems="center"
+                gap={1}
+                margin="0"
+                padding="0"
+              >
+                <Checkbox
+                  name="terms"
+                  onClick={(e) =>
+                    setUserInfo({ ...userInfo, terms: e.target.checked })
+                  }
+                />
+                <Typography variant="subtitle2">
+                  <span style={{ paddingRight: "10px" }}>Accept Our</span>
+                  <Link
+                    href="/#"
+                    style={{ textDecoration: "none", color: "red" }}
+                  >
+                    Terms and Conditions
+                  </Link>
+                </Typography>
+              </Stack>
 
               <Button
+                disabled={!userInfo.terms}
                 type="submit"
                 size="large"
                 variant="contained"
@@ -171,7 +237,7 @@ const Register = () => {
               >
                 <GoogleIcon sx={{ marginRight: "10px" }} />
                 <Typography variant="subtitle2">
-                  Continue With Google
+                  Register With Google
                 </Typography>
               </Button>
             </Stack>
