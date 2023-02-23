@@ -76,7 +76,7 @@ const Login = () => {
                 color="success"
                 sx={{
                   "&:hover": {
-                    backgroundColor: "#078586",
+                    backgroundColor: "#2196f3",
                   },
                 }}
               >
