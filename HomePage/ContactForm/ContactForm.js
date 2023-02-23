@@ -2,26 +2,39 @@ import { Button, Grid, TextField, Typography } from "@mui/material";
 import Image from "next/image";
 import contact from "assets/contact.jpg";
 import React from "react";
-import { AspectRatio } from "@mui/icons-material";
+import { AspectRatio } from "@mui/joy";
+
 
 
 const ContactForm = () => {
   return (
     <div>
-      <Grid container spacing={5} columns={16}>
-        <Grid item lg={8} sm={16} mb={5}>
-          {/* <AspectRatio variant="outlined" ratio="1" objectFit="cover"> 
-              
-                </AspectRatio> */}
-          <Image
-            src={contact}
-            height={650}
-            width={670}
-            alt=" contact image "
-          ></Image>
+      <Grid 
+        mb={10}
+        mt={10}
+       
+        
+        
+        container 
+        // spacing={5} 
+        columns={16}
+        sx={{boxShadow: 5}}>
+        <Grid item lg={8} sm={16} >
+         <AspectRatio objectFit="cover" ratio="1">
+      
+        <Image
+          mt={0}
+          src={contact}
+         
+          
+          alt=" contact image "
+        ></Image>
+       
+         </AspectRatio>
+         
         </Grid>
 
-        <Grid item lg={8} sm={16} mt={12} mb={12}>
+         <Grid item lg={8} sm={16} p={10}  >
           <Grid container item columns={16} spacing={2}  mb={2}>
             <Typography
               mb={3}
