@@ -1,6 +1,7 @@
 import {
   Button,
   InputAdornment,
+  InputLabel,
   Paper,
   TextField,
   Typography,
@@ -12,6 +13,7 @@ import AnimateLog from "../assets/Login/login-animate.gif";
 import AnimateLock from "../assets/Login/login.gif";
 import Image from "next/image";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import { Label } from "@mui/icons-material";
 
 const Login = () => {
   return (
@@ -59,24 +61,26 @@ const Login = () => {
           <form>
             <Stack spacing={3}>
               <TextField
-                id="outlined-basic"
-                label="Email"
+                id="email"
                 type="email"
+                label="Email"
                 variant="standard"
                 marginBottom="22px"
                 size="small"
               />
-
+              
               <TextField
-                id="outlined-basic"
+                id="password"
                 label="Password"
                 type="password"
                 variant="standard"
                 size="small"
               />
-
               <Button size="large" variant="contained" color="success">
                 Login
+              </Button>
+              <Button size="large" variant="outlined" color="success">
+                Continue With Google
               </Button>
             </Stack>
           </form>
