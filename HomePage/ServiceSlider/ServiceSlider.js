@@ -4,12 +4,27 @@ import ChatImage from "../../assets/ServiceSlider/chat-feature-logo.jpg" ;
 import ChartImage from "../../assets/ServiceSlider/chart-services.png" ;
 import HRImage from "../../assets/ServiceSlider/hr-management-image.jpg" ;
 import InvoiceImage from "../../assets/ServiceSlider/invoice.jpeg" ;
+
+
+
+import Invoice from "../../assets/ServiceSlider/invoice.gif" ;
+import blog from "../../assets/ServiceSlider/blog.gif" ;
+import chat from "../../assets/ServiceSlider/chat.gif" ;
+import chart from "../../assets/ServiceSlider/chart.gif" ;
+import hr from "../../assets/ServiceSlider/HR.gif";
+import pricess from "../../assets/ServiceSlider/price.gif";
+
+
+
+
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
 import styles from "./ServiceSlider.module.css";
 import { Box, Card, CardContent, CardMedia, Stack, Typography } from "@mui/material";
 import { textAlign } from "@mui/system";
+import { AspectRatio, Grid } from "@mui/joy";
+import { Directions } from "@mui/icons-material";
 
 const ServicesSlider = () => {
   const responsive = {
@@ -36,42 +51,43 @@ const ServicesSlider = () => {
     {
       name: "Invoice Service",
       id: "01",
-      image: InvoiceImage,
+      image: Invoice,
     },
     {
       name: "Real Time Chatting",
       id: "02",
-      image: ChatImage,
+      image: chat,
     },
     {
       name: "HR Management",
       id: "03",
-      image: HRImage,
+      image: hr,
     },
     {
       name: "Chart And Graphs Service",
       id: "04",
-      image: ChartImage,
+      image: chart,
     },
 
     {
       name: "Blogs",
       id: "05",
-      image: BlogImage,
+      image: blog,
     },
     {
       name: "Customize Pricing",
       id: "05",
-      image: PricingImage,
+      image: pricess,
     },
   ];
 
   return (
     <Box sx={{ marginTop: "200px" }}>
       <Typography
+      mb={5}
         textAlign='center'
         fontWeight='bold'
-        variant="h4"
+        variant="h3"
       >
         Our Services
       </Typography>
@@ -95,24 +111,40 @@ const ServicesSlider = () => {
         // itemClass="carousel-item-padding--110-px"
       >
         {services?.map((service) => (
-          <Box key={service.id} className={styles.sliderContainer}>
-     
-            <Card className={styles.serviceCard} boxShadow='none'>
-              <CardContent>
-                <Typography className={styles.serviceName}>
+          <Box key={service.id}  >
+            
+        <Grid item className={styles.mainBox}>
+           <Grid item>
+                 <Typography 
+                 className={styles.serviceName}
+                 variant="h5">
                   {service?.name}{" "}
                 </Typography>
-                <CardMedia>
-                  <Image
-                    src={service?.image}
-                    alt="service"
-                    width="300"
-                    border="primary"
-                    height="150"
-                  />
-                </CardMedia>
-              </CardContent>
-            </Card>
+           </Grid>
+     
+           <Grid item  className={styles.imageBox}>
+              <Box sx={{boxShadow: 1, padding: 10, margin:2}}>
+                 <Image 
+                      src={service?.image}
+                      alt="service"
+                      width="80"
+                      // border="primary"
+                      height="80"
+                    />
+                {/* <CardContent>
+              
+                
+                
+                
+                </CardContent> */}
+                {/* <CardMedia >
+                  
+                
+                  
+                  </CardMedia> */}
+              </Box>
+           </Grid>
+           </Grid>
             
           </Box>
         ))}
