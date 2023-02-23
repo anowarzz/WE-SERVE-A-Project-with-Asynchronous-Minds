@@ -4,15 +4,15 @@ import contact from "assets/contact.jpg";
 import React from 'react';
 import { AspectRatio } from '@mui/icons-material';
 
+
 const ContactForm = () => {
     return (
         <div>
             <Grid container spacing={5} columns={16}>
                 <Grid item  lg={8} sm={16}  mb={5}> 
-                {/* <AspectRatio variant="outlined" ratio="1" objectFit="cover"> 
-              
-                </AspectRatio> */}
-                  <Image src={contact}  height={650}   width={670}    alt=" contact image "></Image>
+                <AspectRatio>
+                <Image src={contact}  height={650}   width={600}    alt=" contact image "></Image>
+                </AspectRatio>
                 </Grid>
 
 
@@ -20,7 +20,7 @@ const ContactForm = () => {
 
                 <Grid item  lg={8} sm={16}  mt={12}  mb={12}>
                     
-                    <Grid container item columns={16} spacing={2} ml={1}  mb={2}  >
+                    <Grid container item columns={16} spacing={1}   mb={2}>
                             <Typography 
                         
                             mb={3}
@@ -41,7 +41,7 @@ const ContactForm = () => {
 
                                 <Grid item xs={7}>
                                 <TextField
-                                    mr={2}
+                                    
                                         id="filled-basic" 
                                         label="Name*" 
                                         variant="filled"
@@ -52,7 +52,7 @@ const ContactForm = () => {
                                 </Grid>
                                 <Grid item xs={7}>
                                 <TextField
-                                    mr={2}
+                                   
                                         id="filled-basic" 
                                         label="Email*" 
                                         variant="filled"
@@ -67,7 +67,7 @@ const ContactForm = () => {
 
                                 <Grid item xs={7}>
                                 <TextField
-                                    mr={2}
+                                  
                                         id="filled-basic" 
                                         label="Phone*" 
                                         variant="filled"
@@ -78,7 +78,7 @@ const ContactForm = () => {
                                 </Grid>
                                 <Grid item xs={7}>
                                 <TextField
-                                    mr={2}
+                                    
                                         id="filled-basic" 
                                         label="Subject*" 
                                         variant="filled"
@@ -93,7 +93,7 @@ const ContactForm = () => {
 
                                 <Grid item xs={14}>
                                 <TextField
-                                    mr={2}
+                                   
                                         id="filled-basic" 
                                         label="Message*" 
                                         variant="filled"
@@ -115,7 +115,7 @@ const ContactForm = () => {
                         <Grid item xs={14}>
                             <Button
                                 variant="contained" >
-                                Send
+                                Sends
                             </Button>
                         </Grid>
                     </Grid>
