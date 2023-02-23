@@ -1,5 +1,6 @@
 import {
   Button,
+  Divider,
   InputAdornment,
   InputLabel,
   Paper,
@@ -12,8 +13,7 @@ import Textarea from "@mui/joy/Textarea";
 import AnimateLog from "../assets/Login/login-animate.gif";
 import AnimateLock from "../assets/Login/login.gif";
 import Image from "next/image";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import { Label } from "@mui/icons-material";
+import GoogleIcon from "@mui/icons-material/Google";
 
 const Login = () => {
   return (
@@ -35,24 +35,18 @@ const Login = () => {
             paddingTop: "1rem",
             paddingLeft: "2rem",
             paddingRight: "2rem",
-            paddingBottom: "5rem",
+            paddingBottom: "3rem",
           }}
         >
           <Stack justifyContent="center" alignItems="center">
-            <Image
-              src={AnimateLock}
-              alt="service"
-              maxWidth="90"
-              height="90"
-              margin="0 auto"
-            />
+            <Image src={AnimateLog} alt="service" maxWidth="90" height="90" />
 
             <Typography
               variant="h4"
               textAlign="center"
               fontWeight="bold"
               marginBottom="2rem"
-              padding="1rem"
+              paddingBottom="1rem"
             >
               Log In
             </Typography>
@@ -68,7 +62,7 @@ const Login = () => {
                 marginBottom="22px"
                 size="small"
               />
-              
+
               <TextField
                 id="password"
                 label="Password"
@@ -76,11 +70,39 @@ const Login = () => {
                 variant="standard"
                 size="small"
               />
-              <Button size="large" variant="contained" color="success">
+              <Button
+                size="large"
+                variant="contained"
+                color="success"
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "#078586",
+                  },
+                }}
+              >
                 Login
               </Button>
-              <Button size="large" variant="outlined" color="success">
-                Continue With Google
+
+              <Divider
+                sx={{ margin: "0px", padding: "0px", fontFamily: "railway" }}
+              >
+                OR
+              </Divider>
+              <Button
+                size="large"
+                variant="outlined"
+                color="success"
+                sx={{
+                  "&:hover": {
+                    backgroundColor: "#2E7D32",
+                    color: "white",
+                  },
+                }}
+              >
+                <GoogleIcon sx={{ marginRight: "10px" }} />
+                <Typography variant="subtitle2">
+                  Continue With Google
+                </Typography>
               </Button>
             </Stack>
           </form>
