@@ -84,10 +84,10 @@ const ServicesSlider = () => {
         ssr={true} // means to render carousel on server-side.
         infinite={true}
         autoPlay={true}
-        autoPlaySpeed={2000}
+        autoPlaySpeed={3000}
         keyBoardControl={true}
         arrows=""
-        customTransition="transform 500ms ease-in"
+        customTransition="transform 500ms ease-out"
         transitionDuration={1000}
         containerClass="carousel-container"
         removeArrowOnDeviceType={["tablet", "desktop"]}
