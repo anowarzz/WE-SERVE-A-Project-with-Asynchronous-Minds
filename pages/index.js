@@ -6,7 +6,7 @@ import { Button } from "@mui/material";
 import { Stack } from "@mui/system";
 import ServicesSlider from "@/HomePage/ServiceSlider/ServiceSlider";
 import ContactForm from "@/HomePage/ContactForm/ContactForm";
-
+import HeroSection from "@/HomePage/HeroSection/HeroSection";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,19 +21,11 @@ export default function Home() {
       </Head>
 
       <main>
-        <h2>Hello World</h2>
-    <Stack spacing={4} p='200px'>
-    <Button variant="text">Text</Button>
-        <Button variant="contained">Contained</Button>
-        <Button variant="outlined">Outlined</Button>
-        <Button variant="outlined">new button added shanewaz</Button>
-        <Button variant="outlined">new button arif khan</Button>
-        <Button variant="outlined">new button 2.0 Shoumik </Button>
-    </Stack>
+        
+        <HeroSection />
 
-
-  <ServicesSlider />
-  <ContactForm></ContactForm>
+        <ServicesSlider />
+        <ContactForm></ContactForm>
       </main>
     </>
   );
