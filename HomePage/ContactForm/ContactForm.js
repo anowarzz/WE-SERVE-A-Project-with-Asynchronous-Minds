@@ -3,43 +3,45 @@ import Image from "next/image";
 import contact from "assets/contact.jpg";
 import React from "react";
 import { AspectRatio } from "@mui/icons-material";
+import styles from './ContactForm.module.css'
+import { Box } from "@mui/system";
+
 
 
 const ContactForm = () => {
   return (
-    <div>
-      <Grid container spacing={5} columns={16}>
+    <Box mt={7}>
+      <Grid container spacing={5} columns={16} justifyContent='center' alignItems='center'>
         <Grid item lg={8} sm={16} mb={5}>
           {/* <AspectRatio variant="outlined" ratio="1" objectFit="cover"> 
               
                 </AspectRatio> */}
           <Image
             src={contact}
-            height={650}
-            width={670}
-            alt=" contact image "
+            alt="contact-image"
+            className={styles.contactImg}
           ></Image>
         </Grid>
 
-        <Grid item lg={8} sm={16} mt={12} mb={12}>
+        <Grid item lg={8} sm={16} mt={12} mb={12} justifyContent='center' alignItems='center' sx={{margin: '0 auto', justifyContent:'center'}}>
           <Grid container item columns={16} spacing={2}  mb={2}>
             <Typography
-              mb={3}
-              sx={{ textAlign: "center", fontWeight: "bold", color: "#8d6e63" }}
+              mb={1}
+              sx={{ textAlign: "center", fontWeight: "bold"}}
               variant="h4"
             >
               Request a Free Consultation
             </Typography>
 
             <Typography
-              sx={{ textAlign: "center", fontWeight: "bold", color: "#bcaaa4" }}
+              sx={{ textAlign: "center", fontWeight: "bold" }}
               variant="h7"
             >
               Dramatically maintain clicks-and-mortar solutions without
               functional solutions.
             </Typography>
           </Grid>
-          <Grid container item columns={16} spacing={2} mb={2}>
+          <Grid container item  columns={16} spacing={2} mb={2}>
             <Grid item xs={7}>
               <TextField
                 mr={2}
@@ -98,7 +100,7 @@ const ContactForm = () => {
                 autoFocus
                 inputProps={{
                   style: {
-                    height: "150px",
+                    height: "90px",
                   },
                 }}
                 multiline={true}
@@ -113,7 +115,7 @@ const ContactForm = () => {
           </Grid>
         </Grid>
       </Grid>
-    </div>
+    </Box>
   );
 };
 
