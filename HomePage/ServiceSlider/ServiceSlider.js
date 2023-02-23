@@ -1,9 +1,9 @@
-import PricingImage from "../../assets/best-pricing.jpg";
-import BlogImage from "../../assets/blog.png";
-import ChatImage from "../../assets/chat-feature-logo.jpg";
-import ChartImage from "../../assets/chart-services.png";
-import HRImage from "../../assets/hr-management-image.jpg";
-import InvoiceImage from "../../assets/invoice.jpeg";
+import PricingImage from "../../assets/ServiceSlider/best-pricing.jpg";
+import BlogImage from "../../assets/ServiceSlider/blog.png" ;
+import ChatImage from "../../assets/ServiceSlider/chat-feature-logo.jpg" ;
+import ChartImage from "../../assets/ServiceSlider/chart-services.png" ;
+import HRImage from "../../assets/ServiceSlider/hr-management-image.jpg" ;
+import InvoiceImage from "../../assets/ServiceSlider/invoice.jpeg" ;
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
