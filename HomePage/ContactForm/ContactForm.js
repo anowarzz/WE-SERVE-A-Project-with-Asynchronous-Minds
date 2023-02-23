@@ -3,14 +3,19 @@ import Image from "next/image";
 import contact from "assets/contact.jpg";
 import React from "react";
 import { AspectRatio } from "@mui/icons-material";
-import styles from './ContactForm.module.css'
+import styles from "./ContactForm.module.css";
 import { Box } from "@mui/system";
-
 
 const ContactForm = () => {
   return (
     <Box mt={7}>
-      <Grid container spacing={5} columns={16} justifyContent='center' alignItems='center'>
+      <Grid
+        container
+        spacing={5}
+        columns={16}
+        justifyContent="center"
+        alignItems="center"
+      >
         <Grid item lg={8} sm={16} mb={5}>
           {/* <AspectRatio variant="outlined" ratio="1" objectFit="cover"> 
               
@@ -22,11 +27,20 @@ const ContactForm = () => {
           ></Image>
         </Grid>
 
-        <Grid item lg={8} sm={16} mt={12} mb={12} justifyContent='center' alignItems='center' sx={{margin: '0 auto', justifyContent:'center'}}>
-          <Grid container item columns={16} spacing={2}  mb={2}>
+        <Grid
+          item
+          lg={8}
+          sm={16}
+          mt={12}
+          mb={12}
+          justifyContent="center"
+          alignItems="center"
+          sx={{ margin: "0 auto", justifyContent: "center" }}
+        >
+          <Grid container item columns={16} spacing={2} mb={2}>
             <Typography
               mb={1}
-              sx={{ textAlign: "center", fontWeight: "bold"}}
+              sx={{ textAlign: "center", fontWeight: "bold" }}
               variant="h4"
             >
               Request a Free Consultation
@@ -40,7 +54,7 @@ const ContactForm = () => {
               functional solutions.
             </Typography>
           </Grid>
-          <Grid container item  columns={16} spacing={2} mb={2}>
+          <Grid container item columns={16} spacing={2} mb={2}>
             <Grid item xs={7}>
               <TextField
                 mr={2}
