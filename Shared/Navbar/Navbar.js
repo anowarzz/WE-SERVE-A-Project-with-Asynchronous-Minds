@@ -6,6 +6,7 @@ import { useState } from 'react';
 import DrawerCom from './DrawerCom';
 
 const Navbar = () => {
+<<<<<<< HEAD
   const [value,setValue]=useState()
   const theme=useTheme()
   const isMatch=useMediaQuery(theme.breakpoints.down('md'))
@@ -113,6 +114,9 @@ const Navbar = () => {
       </Menu> 
         </div>
     );
+=======
+  return <div></div>;
+>>>>>>> f703fb822cd3175f29010d0c29d2862fc6794088
 };
 
 export default Navbar;

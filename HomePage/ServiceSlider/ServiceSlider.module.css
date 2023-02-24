@@ -1,7 +1,7 @@
 .sliderContainer{
-    width: 90% ;
+    width: 100% ;
     margin: 2rem auto;
-    height: 300px;
+    height: 400px;
     display: flex ;
     justify-content: center;
     align-items: center;
@@ -13,7 +13,7 @@
 }
 
 .serviceCard{
-    border: 1px solid #078586;
+    /* border: 1px solid #078586; */
 }
 
 .serviceName{
@@ -21,4 +21,20 @@
     margin-bottom: 10px;
     font-weight: bold;
     /* color: #078586; */
+}
+.mainBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+.imageBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+   
+
 }
