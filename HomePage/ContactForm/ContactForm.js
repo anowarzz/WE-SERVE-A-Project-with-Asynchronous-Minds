@@ -12,12 +12,12 @@ const ContactForm = () => {
           {/* <AspectRatio variant="outlined" ratio="1" objectFit="cover"> 
               
                 </AspectRatio> */}
-          <Image
+          {/* <Image
             src={contact}
             height={650}
             width={670}
             alt=" contact image "
-          ></Image>
+          ></Image> */}
         </Grid>
 
         <Grid item lg={8} sm={16} mt={12} mb={12}>

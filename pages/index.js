@@ -7,7 +7,9 @@ import { Stack } from "@mui/system";
 import ServicesSlider from "@/HomePage/ServiceSlider/ServiceSlider";
 import ContactForm from "@/HomePage/ContactForm/ContactForm";
 import HeroSection from "@/HomePage/HeroSection/HeroSection";
-
+import Navbar from "@/Shared/Navbar/Navbar";
+import SimpleMenu from "@/components/Demo";
+import chatLogo from '../assets/chatLogo.png'
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -20,12 +22,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        
+      <main className={styles.main}>
+       
+        <Navbar/>
         <HeroSection />
-
         <ServicesSlider />
         <ContactForm></ContactForm>
+        <div className={styles.chatLogo}>
+           <Image 
+           src={chatLogo}
+           className={styles.logo}
+           width="50"
+           height="50"
+           />
+        </div>
       </main>
     </>
   );
