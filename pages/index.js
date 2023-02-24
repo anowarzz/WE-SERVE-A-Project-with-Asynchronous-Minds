@@ -34,6 +34,7 @@ export default function Home() {
            className={styles.logo}
            width="50"
            height="50"
+           alt="chatlogo"
            />
         </div>
       </main>

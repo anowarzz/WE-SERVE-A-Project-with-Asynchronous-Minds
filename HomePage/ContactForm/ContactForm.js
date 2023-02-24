@@ -8,19 +8,6 @@ import contact from "../../assets/contact.jpg";
 const ContactForm = () => {
   return (
     <div>
-<<<<<<< HEAD
-      <Grid container spacing={5} columns={16}>
-        <Grid item lg={8} sm={16} mb={5}>
-          {/* <AspectRatio variant="outlined" ratio="1" objectFit="cover"> 
-              
-                </AspectRatio> */}
-          {/* <Image
-            src={contact}
-            height={650}
-            width={670}
-            alt=" contact image "
-          ></Image> */}
-=======
     <Grid 
       mb={10}
       mt={10}
@@ -63,7 +50,6 @@ const ContactForm = () => {
             Dramatically maintain clicks-and-mortar solutions without
             functional solutions.
           </Typography>
->>>>>>> f703fb822cd3175f29010d0c29d2862fc6794088
         </Grid>
         <Grid container item columns={16} spacing={2} mb={2}>
           <Grid item xs={7}>
