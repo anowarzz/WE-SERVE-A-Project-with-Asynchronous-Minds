@@ -8,8 +8,9 @@ import ServicesSlider from "@/HomePage/ServiceSlider/ServiceSlider";
 import ContactForm from "@/HomePage/ContactForm/ContactForm";
 import HeroSection from "@/HomePage/HeroSection/HeroSection";
 import Navbar from "@/Shared/Navbar/Navbar";
+import chatLogo from "../assets/chatLogo.png";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"]});
 
 export default function Home() {
   return (
@@ -27,6 +28,15 @@ export default function Home() {
 
         <ServicesSlider />
         <ContactForm></ContactForm>
+        <div className={styles.chatLogo}>
+           <Image 
+           src={chatLogo}
+           className={styles.logo}
+           width="50"
+           height="50"
+           alt="chatlogo"
+           />
+        </div>
       </main>
     </>
   );
