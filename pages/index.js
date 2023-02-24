@@ -7,6 +7,7 @@ import { Stack } from "@mui/system";
 import ServicesSlider from "@/HomePage/ServiceSlider/ServiceSlider";
 import ContactForm from "@/HomePage/ContactForm/ContactForm";
 import HeroSection from "@/HomePage/HeroSection/HeroSection";
+import Navbar from "@/Shared/Navbar/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,7 @@ export default function Home() {
       </Head>
 
       <main>
-        
+        <Navbar></Navbar>
         <HeroSection />
 
         <ServicesSlider />
