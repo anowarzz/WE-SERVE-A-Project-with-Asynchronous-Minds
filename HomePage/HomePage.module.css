@@ -1,0 +1,12 @@
+.main{
+    position: relative;
+}
+.chatLogo{
+    position: fixed;
+    right:20px;
+    bottom:100px;
+}
+.chatLogo:hover{
+    transform: rotate(360deg);
+    transition-duration: 2s;
+}
