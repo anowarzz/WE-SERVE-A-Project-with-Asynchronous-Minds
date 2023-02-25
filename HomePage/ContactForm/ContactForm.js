@@ -11,9 +11,6 @@ const ContactForm = () => {
     <Grid 
       mb={10}
       mt={10}
-     
-      
-      
       container 
       // spacing={5} 
       columns={16}

@@ -1,0 +1,61 @@
+
+
+
+
+
+.bg{
+  background-image: url('/3ec6da2d-3d2c-4cc6-ad08-d26f92227d8b.webp');
+  background-repeat: no-repeat;
+  
+  height: 100vh;
+  width: 100%;
+  background-size:cover;
+  background-position: center;
+  object-fit: cover;
+
+
+}
+
+.upDown {
+    animation-name: upDownLoop;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    transition: all .3s;
+  }
+
+@keyframes upDownLoop {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-30px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+
+  .upDownTwo {
+    animation-name: upDownLoop;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    transition: all .3s;
+  }
+
+@keyframes upDownLoop {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-40px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply the animation to the element */
+  
