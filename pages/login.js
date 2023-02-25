@@ -141,7 +141,7 @@ const handleGoogleLogIn = () =>{
               />
               {
                 error && (
-                  <Typography color='secondary'>
+                  <Typography color='red' fontWeight='bold' fontSize='small'>
                     {error}
                   </Typography>
                 )
