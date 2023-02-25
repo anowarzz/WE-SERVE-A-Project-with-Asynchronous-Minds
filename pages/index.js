@@ -8,9 +8,10 @@ import ServicesSlider from "@/HomePage/ServiceSlider/ServiceSlider";
 import ContactForm from "@/HomePage/ContactForm/ContactForm";
 import HeroSection from "@/HomePage/HeroSection/HeroSection";
 import Navbar from "@/Shared/Navbar/Navbar";
-import chatLogo from "../assets/chatLogo.png";
+import SimpleMenu from "@/components/Demo";
+const inter = Inter({ subsets: ["latin"] });
+import HomePage from '../HomePage/HomePage.js'
 
-const inter = Inter({ subsets: ["latin"]});
 
 export default function Home() {
   return (
@@ -22,21 +23,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Navbar></Navbar>
-        <HeroSection />
-
-        <ServicesSlider />
-        <ContactForm></ContactForm>
-        <div className={styles.chatLogo}>
-           <Image 
-           src={chatLogo}
-           className={styles.logo}
-           width="50"
-           height="50"
-           alt="chatlogo"
-           />
-        </div>
+      <main className={styles.main}>
+       <HomePage />
+  
       </main>
     </>
   );
