@@ -14,38 +14,81 @@ import {
   Typography,
 } from "@mui/material";
 import { Box, Stack } from "@mui/system";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Textarea from "@mui/joy/Textarea";
 import AnimateLog from "../assets/Login/login-animate.gif";
 import AnimateLock from "../assets/Login/login.gif";
 import Image from "next/image";
-import GoogleIcon from "@mui/icons-material/Google";
 import Link from "next/link";
+import { AuthContext } from "@/contexts/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
+import GoogleIcon from '@mui/icons-material/Google';
+import { useRouter } from "next/router";
+
+
+const googleProvider = new GoogleAuthProvider();
 
 const Register = () => {
+  const {
+    createNewUser,
+    updateUserProfile,
+    googleLogIn,
+    setUser,
+    loading,
+    setLoading,
+
+  } = useContext(AuthContext);
+
   const [userInfo, setUserInfo] = useState({
     name: "",
     orgName: "",
     email: "",
-    accountType: "",
+    // accountType: "",
     password: "",
     confirmPassword: "",
     terms: false,
   });
 
-  //   Collecting the input value of Register form
 
-  const handleInputChange = (event) => {
-    setUserInfo((prevState) => ({
-      ...prevState,
-      [event.target.name]: [event.target.value],
-    }));
-  };
+  const router = useRouter();
 
-  const handleRegisterInfo = (event) => {
+  // Registering a user
+  const handleRegister = (event) => {
     event.preventDefault();
+    const name = userInfo.name;
+    const email = userInfo.email;
+    const password = userInfo.password;
+
+    createNewUser(email, password).then((result) => {
+      const user = result.user;
+      console.log(user);
+      handleUpdateUserProfile();
+      route.push('/')
+    });
+
+    //updating user information
+    const handleUpdateUserProfile = (name) => {
+      const profile = { displayName: name };
+      updateUserProfile(profile)
+        .then(() => {})
+        .catch((e) => console.error(e));
+    };
+
     console.log(userInfo);
   };
+
+
+  // User Register with google
+  const handleGoogleRester = () => {
+    googleLogIn(googleProvider).then((result) => {
+      const user = result.user;
+      setUser(user);
+      router.push('/')
+    });
+  };
+
+
+
 
   return (
     <Box
@@ -88,7 +131,7 @@ const Register = () => {
             </Typography>
           </Stack>
 
-          <form onSubmit={handleRegisterInfo}>
+          <form onSubmit={handleRegister}>
             <Stack spacing={3}>
               <Stack
                 justifyContent="space-between"
@@ -130,7 +173,7 @@ const Register = () => {
                   setUserInfo({ ...userInfo, email: e.target.value })
                 }
               />
-              <FormControl variant="standard">
+              {/* <FormControl variant="standard">
                 <InputLabel id="account-type">Choose Your Role</InputLabel>
                 <Select
                   labelId="account-type"
@@ -140,13 +183,13 @@ const Register = () => {
                     setUserInfo({ ...userInfo, accountType: e.target.value })
                   }
                   label=""
-                >
-                  <MenuItem value="">{/* <em>None</em> */}</MenuItem>
-                  <MenuItem value="user">User</MenuItem>
-                  <MenuItem value="moderator">Moderator</MenuItem>
-                  {/* <MenuItem value={30}>Admin</MenuItem> */}
-                </Select>
-              </FormControl>
+                > */}
+              {/* <MenuItem value=""><em>None</em></MenuItem> */}
+              {/* <MenuItem value="user">User</MenuItem> */}
+              {/* <MenuItem value="moderator">Moderator</MenuItem> */}
+              {/* <MenuItem value={30}>Admin</MenuItem> */}
+              {/* </Select> */}
+              {/* </FormControl> */}
 
               <Stack
                 justifyContent="space-between"
@@ -225,6 +268,7 @@ const Register = () => {
                 OR
               </Divider>
               <Button
+              onClick={handleGoogleRester}
                 size="large"
                 variant="outlined"
                 color="success"
