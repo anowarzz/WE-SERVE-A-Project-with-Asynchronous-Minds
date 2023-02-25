@@ -168,7 +168,7 @@ const Register = () => {
 
               {
                 loading && (
-                  <BarLoader color="#36d7b7" size={120} style={{textAlign:'center'}} />
+                  <BarLoader color="#36d7b7"  style={{textAlign:'center'}} />
                 )
               }
               <Stack
@@ -282,7 +282,7 @@ const Register = () => {
                 <Typography variant="subtitle2">
                   <span style={{ paddingRight: "10px" }}>Accept Our</span>
                   <Link
-                    href="/#"
+              
                     style={{ textDecoration: "none", color: "red" }}
                   >
                     Terms and Conditions
