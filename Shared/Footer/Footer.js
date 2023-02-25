@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <Box>
             <Typography>
-                This is the footer
+                This is a new footer create -- faysal
             </Typography>
         </Box>
     );
