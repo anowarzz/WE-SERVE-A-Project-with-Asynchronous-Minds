@@ -24,6 +24,7 @@ import { AuthContext } from "@/contexts/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import GoogleIcon from '@mui/icons-material/Google';
 import { useRouter } from "next/router";
+import { AltRouteRounded } from "@mui/icons-material";
 
 
 const googleProvider = new GoogleAuthProvider();
@@ -63,7 +64,7 @@ const Register = () => {
       const user = result.user;
       console.log(user);
       handleUpdateUserProfile();
-      route.push('/')
+      router.push('/')
     });
 
     //updating user information
@@ -140,23 +141,25 @@ const Register = () => {
               >
                 <TextField
                   id="name"
+                  required
                   type="text"
                   label="Full Name"
                   variant="standard"
                   size="small"
                   autoComplete="off"
-                  onChange={(e) =>
+                  onBlur={(e) =>
                     setUserInfo({ ...userInfo, name: e.target.value })
                   }
                 />
                 <TextField
                   id="org-name"
                   type="text"
+                  required
                   label="Organization Name"
                   variant="standard"
                   size="small"
                   autoComplete="off"
-                  onChange={(e) =>
+                  onBlur={(e) =>
                     setUserInfo({ ...userInfo, orgName: e.target.value })
                   }
                 />
@@ -164,12 +167,13 @@ const Register = () => {
 
               <TextField
                 id="email"
+                required
                 type="email"
                 label="Email"
                 variant="standard"
                 size="small"
                 autoComplete="off"
-                onChange={(e) =>
+                onBlur={(e) =>
                   setUserInfo({ ...userInfo, email: e.target.value })
                 }
               />
@@ -200,9 +204,10 @@ const Register = () => {
                   id="password"
                   label="Password"
                   type="password"
+                  required
                   variant="standard"
                   size="small"
-                  onChange={(e) =>
+                  onBlur={(e) =>
                     setUserInfo({ ...userInfo, password: e.target.value })
                   }
                 />
@@ -211,8 +216,9 @@ const Register = () => {
                   label="Confirm Password"
                   type="password"
                   variant="standard"
+                  required
                   size="small"
-                  onChange={(e) =>
+                  onBlur={(e) =>
                     setUserInfo({
                       ...userInfo,
                       confirmPassword: e.target.value,
@@ -286,6 +292,12 @@ const Register = () => {
               </Button>
             </Stack>
           </form>
+          <Typography variant="subtitle2" textAlign='center' mt={2}>
+            Already Have An Account ? 
+            <Link href='/login' style={{paddingLeft: '8px', textDecoration:'none', color:'red', fontWeight:'bold'}}>
+                Login Now
+            </Link>
+          </Typography>
         </Paper>
       </Stack>
     </Box>
