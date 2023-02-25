@@ -2,8 +2,10 @@
 import { IconButton, Menu, MenuItem, Tab, Tabs, Toolbar, Typography,useMediaQuery,useTheme } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import SearchIcon from '@mui/icons-material/Search';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import DrawerCom from './DrawerCom';
+import { AuthContext } from '@/contexts/AuthProvider';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
   const [value,setValue]=useState()
@@ -26,6 +28,27 @@ const Navbar = () => {
   const handleClose2 = () => {
     setAnchorEl2(null);
   };
+
+
+
+// Using router Hook
+const router = useRouter();
+
+
+// Getting User and data from context api
+const {user, logOut} = useContext(AuthContext);
+
+
+// Logging out a user
+const logOutHandler = () => {
+logOut()
+.then(() => {
+  router.push('/login')
+})
+.catch((err) => console.error(err))
+}
+
+
   
     return (
         <div>
@@ -96,7 +119,7 @@ const Navbar = () => {
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={logOutHandler}>Logout</MenuItem>
       </Menu>  
             <Menu
         id="productsItem"
