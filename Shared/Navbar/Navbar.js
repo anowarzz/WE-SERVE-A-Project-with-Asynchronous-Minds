@@ -39,6 +39,7 @@ const router = useRouter();
 const {user, logOut} = useContext(AuthContext);
 
 
+
 // Logging out a user
 const logOutHandler = () => {
 logOut()

@@ -18,7 +18,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "@/contexts/AuthProvider";
-
+import {ScaleLoader} from "react-spinners";
 
 
 const googleProvider = new GoogleAuthProvider();
@@ -29,6 +29,8 @@ const Login = () => {
  // Context values 
   const {setUser,logIn,googleLogIn} = useContext(AuthContext)
 
+  // loading state
+  const [loading, setLoading] = useState(false)
 
 
 // error state
@@ -45,6 +47,7 @@ const [error, setError] = useState('')
 
 // Logging in a user with email and password
 const handleLogin = (event) => {
+  setLoading(true)
 event.preventDefault();
   
 const email = loginInfo.email;
@@ -54,25 +57,34 @@ logIn(email, password)
 .then(result => {
   const user = result.user ;
   setUser(user)
+  setLoading(false)
+
   router.push('/')
 })
 .catch(err => {
   console.log(err);
   setError(err.message)
+  setLoading(false)
+
 })}
 
 
 // User Login with google Account 
 const handleGoogleLogIn = () =>{
+  setLoading(true)
+
   googleLogIn(googleProvider)
   .then(result => {
     const user = result.user ;
     setUser(user)
+    setLoading(false)
     router.push('/')
   }) 
   .catch(err => {
     console.log(err);
     setError(err.message)
+    setLoading(false)
+
     
   })
 }
@@ -112,10 +124,20 @@ const handleGoogleLogIn = () =>{
             >
               Log In
             </Typography>
+        
           </Stack>
 
           <form>
+    
+
             <Stack spacing={3}>
+
+
+            {
+                loading && (
+                  <ScaleLoader color="#36d7b7" size={100} style={{textAlign:'center'}}/>
+                )
+              }
               <TextField
                 id="email"
                 type="email"

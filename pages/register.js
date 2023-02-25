@@ -26,7 +26,7 @@ import GoogleIcon from "@mui/icons-material/Google";
 import { useRouter } from "next/router";
 import { AltRouteRounded } from "@mui/icons-material";
 import { ScaleLoader } from "react-spinners";
-import BarLoader from "react-spinners/BarLoader";
+
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -161,16 +161,17 @@ const Register = () => {
             >
               Register
             </Typography>
+            {
+                loading && (
+                  <ScaleLoader color="#36d7b7" size={100} style={{textAlign:'center'}}/>
+                )
+              }
           </Stack>
 
           <form onSubmit={handleRegister}>
             <Stack spacing={3}>
 
-              {
-                loading && (
-                  <BarLoader color="#36d7b7"  style={{textAlign:'center'}} />
-                )
-              }
+            
               <Stack
                 justifyContent="space-between"
                 direction={{ xs: "column", md: "row" }}
@@ -281,7 +282,7 @@ const Register = () => {
                 />
                 <Typography variant="subtitle2">
                   <span style={{ paddingRight: "10px" }}>Accept Our</span>
-                  <Link
+                  <Link href='/register'
               
                     style={{ textDecoration: "none", color: "red" }}
                   >
