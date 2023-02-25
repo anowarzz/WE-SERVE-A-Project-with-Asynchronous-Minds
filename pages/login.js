@@ -29,6 +29,11 @@ const Login = () => {
  // Context values 
   const {setUser,logIn,googleLogIn} = useContext(AuthContext)
 
+
+
+// error state
+const [error, setError] = useState('')
+
 // Router hook
   const router = useRouter();
 
@@ -53,6 +58,7 @@ logIn(email, password)
 })
 .catch(err => {
   console.log(err);
+  setError(err.message)
 })}
 
 
@@ -66,6 +72,7 @@ const handleGoogleLogIn = () =>{
   }) 
   .catch(err => {
     console.log(err);
+    setError(err.message)
     
   })
 }
@@ -132,6 +139,13 @@ const handleGoogleLogIn = () =>{
                   setLoginInfo({ ...loginInfo, password: e.target.value })
                 }
               />
+              {
+                error && (
+                  <Typography color='secondary'>
+                    {error}
+                  </Typography>
+                )
+              }
               <Button
               onClick={handleLogin}
                 size="large"
