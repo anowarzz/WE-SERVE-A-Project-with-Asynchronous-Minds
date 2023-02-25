@@ -1,3 +1,4 @@
+import { Typography } from '@mui/joy';
 import React from 'react';
 import Navbar from './../../Shared/Navbar/Navbar';
 
