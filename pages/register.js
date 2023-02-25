@@ -22,10 +22,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { AuthContext } from "@/contexts/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
-import GoogleIcon from '@mui/icons-material/Google';
+import GoogleIcon from "@mui/icons-material/Google";
 import { useRouter } from "next/router";
 import { AltRouteRounded } from "@mui/icons-material";
-
+import { ScaleLoader } from "react-spinners";
+import BarLoader from "react-spinners/BarLoader";
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -35,9 +36,6 @@ const Register = () => {
     updateUserProfile,
     googleLogIn,
     setUser,
-    loading,
-    setLoading,
-
   } = useContext(AuthContext);
 
   const [userInfo, setUserInfo] = useState({
@@ -50,21 +48,46 @@ const Register = () => {
     terms: false,
   });
 
+// error and  loading states
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false)
+
 
   const router = useRouter();
 
   // Registering a user
   const handleRegister = (event) => {
+    setLoading(true)
     event.preventDefault();
     const name = userInfo.name;
     const email = userInfo.email;
     const password = userInfo.password;
 
+    if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      setError("Please Provide a Valid Email");
+      setLoading(false)
+      return ;
+    }
+
+    if (password.length < 6) {
+      setError("Password Must Be 6 Character or More");
+      setLoading(false)
+      return;
+    }
+
+    if (userInfo.password !== userInfo.confirmPassword) {
+      setError("Your Password Did Not Match");
+      setLoading(false)
+      return;
+    }
+
     createNewUser(email, password).then((result) => {
+      setError("");
       const user = result.user;
       console.log(user);
       handleUpdateUserProfile();
-      router.push('/')
+      setLoading(false)
+      router.push("/");
     });
 
     //updating user information
@@ -72,24 +95,32 @@ const Register = () => {
       const profile = { displayName: name };
       updateUserProfile(profile)
         .then(() => {})
-        .catch((e) => console.error(e));
+        .catch((e) => {
+          console.error(e);
+          setError(e.message);
+          setLoading(false)
+        });
     };
-
     console.log(userInfo);
   };
 
-
   // User Register with google
-  const handleGoogleRester = () => {
-    googleLogIn(googleProvider).then((result) => {
-      const user = result.user;
-      setUser(user);
-      router.push('/')
-    });
+  const handleGoogleRegister = () => {
+    setLoading(true)
+    googleLogIn(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        setError("");
+        setLoading(false)
+        router.push("/");
+      })
+      .catch((err) => {
+        console.error(err);
+        setError(err.message);
+        setLoading(false)
+      });
   };
-
-
-
 
   return (
     <Box
@@ -134,6 +165,12 @@ const Register = () => {
 
           <form onSubmit={handleRegister}>
             <Stack spacing={3}>
+
+              {
+                loading && (
+                  <BarLoader color="#36d7b7" size={120} style={{textAlign:'center'}} />
+                )
+              }
               <Stack
                 justifyContent="space-between"
                 direction={{ xs: "column", md: "row" }}
@@ -142,11 +179,11 @@ const Register = () => {
                 <TextField
                   id="name"
                   required
+                  autoComplete="off"
                   type="text"
                   label="Full Name"
                   variant="standard"
                   size="small"
-                  autoComplete="off"
                   onBlur={(e) =>
                     setUserInfo({ ...userInfo, name: e.target.value })
                   }
@@ -252,7 +289,7 @@ const Register = () => {
                   </Link>
                 </Typography>
               </Stack>
-
+              {error && <Typography color="red" fontWeight='bold' fontSize='small'>{error}</Typography>}
               <Button
                 disabled={!userInfo.terms}
                 type="submit"
@@ -274,7 +311,7 @@ const Register = () => {
                 OR
               </Divider>
               <Button
-              onClick={handleGoogleRester}
+                onClick={handleGoogleRegister}
                 size="large"
                 variant="outlined"
                 color="success"
@@ -292,10 +329,18 @@ const Register = () => {
               </Button>
             </Stack>
           </form>
-          <Typography variant="subtitle2" textAlign='center' mt={2}>
-            Already Have An Account ? 
-            <Link href='/login' style={{paddingLeft: '8px', textDecoration:'none', color:'red', fontWeight:'bold'}}>
-                Login Now
+          <Typography variant="subtitle2" textAlign="center" mt={2}>
+            Already Have An Account ?
+            <Link
+              href="/login"
+              style={{
+                paddingLeft: "8px",
+                textDecoration: "none",
+                color: "red",
+                fontWeight: "bold",
+              }}
+            >
+              Login Now
             </Link>
           </Typography>
         </Paper>
