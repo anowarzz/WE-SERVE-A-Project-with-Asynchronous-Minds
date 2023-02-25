@@ -1,6 +1,6 @@
 import app from "@/configs/firebase.config";
 import { createContext, useEffect, useState } from "react";
-import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup} from 'firebase/auth'
+import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
 
 // Creating Auth Context
 export const AuthContext = createContext();
@@ -36,7 +36,17 @@ const googleLogIn = (provider) => {
     return signInWithPopup(auth, provider)
 }
 
+// Updating a user info to firebase
+const updateUserProfile = (profile) => {
+    return updateProfile(auth.currentUser, profile)
+}
 
+
+// Logging Out a user
+const logOut = () => {
+    setLoading(true)
+    return signOut(auth)
+}
 
 
 // Monitoring the state of current user
@@ -51,7 +61,7 @@ return () => unsubscribe() ;
 }, [])
 
 
-const authInfo = {user}
+const authInfo = {user, loading, setLoading, createNewUser, logIn, googleLogIn, logOut, updateUserProfile, setUser}
 
 
 
