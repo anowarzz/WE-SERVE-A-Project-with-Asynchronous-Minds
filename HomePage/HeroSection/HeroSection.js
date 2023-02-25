@@ -1,14 +1,75 @@
-import { Typography } from '@mui/joy';
-import React from 'react';
-import Navbar from './../../Shared/Navbar/Navbar';
+
+import { AspectRatio, Button } from '@mui/joy';
+import { Box, Grid, Typography } from '@mui/material';
+import Image from 'next/image';
+
+import React from 'react'; 
+import styles from './HeroSection.module.css'
+import mouse from '../../assets/hero/mouse.webp'
+import keyb from '../../assets/hero/keyboard.webp'
+
+
+
 
 const HeroSection = () => {
     return (
-        <div style={{marginTop:'100px'}}>
-      
-            <h2>This is Hero section where Hero Alom lives</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel voluptates ipsa officia, in nulla illo est ratione ipsum hic placeat aspernatur ut quo dignissimos quis vero. Officiis eos perspiciatis repellendus vero mollitia ad obcaecati, expedita corrupti, architecto, enim sit provident laborum temporibus aliquid soluta. Voluptates eaque sapiente fugit velit reiciendis laboriosam sed! Dolorum officia quia, cumque ipsum iusto at natus quaerat architecto voluptates est dolor, eveniet repellendus alias? Distinctio, illum at? Dolorem corporis facilis, corrupti nesciunt nisi dolore adipisci unde similique quasi repudiandae aliquam, voluptatum inventore, quos illum consequuntur magnam perspiciatis? Et quis ipsa placeat qui deleniti officia, explicabo maiores id quam eligendi vel! Qui earum at voluptatem placeat esse est, suscipit aperiam quibusdam. Amet corporis ducimus at ipsa repellendus ab, aliquam adipisci dolore voluptatum impedit nemo molestiae fugit illo, cum eligendi. Nemo et deserunt, numquam ipsum expedita perferendis nostrum vel quibusdam, doloribus officia enim assumenda soluta consequatur voluptas, dignissimos provident tempore eos ad! Sunt quod nisi dolore iste aut voluptatibus totam veniam dolores ipsam minima corrupti, velit soluta nihil accusamus accusantium in corporis eius temporibus mollitia omnis dolor laudantium perferendis cupiditate. Ex aliquam deserunt, dignissimos natus facere voluptate quisquam! Libero illum numquam expedita, dignissimos facilis iste quis reprehenderit consequatur temporibus itaque laboriosam qui, neque fuga ea fugiat tenetur excepturi! Consectetur unde non eius quasi. Ut fugit libero suscipit incidunt, eos facere recusandae expedita dicta modi non tempora totam ullam quidem? Eius quaerat in porro doloremque rerum dolorum neque. Nihil, quam sit? Earum minima, ipsa voluptas voluptate magnam expedita optio architecto eum, ducimus molestiae exercitationem doloremque at quia fugiat facere eius reiciendis a aspernatur enim. Repellendus iste, tempora suscipit voluptate minus dolor minima eaque eligendi, ullam, doloremque eos culpa quas fugiat numquam aliquam cum magni! Dolorem quae cum numquam illo laudantium aliquam accusantium pariatur, sed nisi quisquam repudiandae omnis ad itaque natus labore dolorum fugit saepe officiis reprehenderit harum libero ab? Hic libero suscipit corrupti deserunt, maxime ab quidem? Suscipit ut deleniti atque. Id, possimus voluptatibus rerum hic officia delectus. Enim porro sapiente ratione. Alias omnis officia maxime molestiae velit repellat assumenda odio quisquam reiciendis consequuntur error quidem provident, blanditiis molestias suscipit, ipsa illum nulla porro animi sequi! Est quos vero odio, ab neque deleniti nihil excepturi laudantium sit quam? Animi possimus ex, perferendis repellendus asperiores reiciendis nobis quidem provident similique consequuntur in voluptatum! Repellat sit eos doloremque rerum error! Atque accusantium, quos pariatur harum ducimus dolores est voluptatibus possimus ratione nobis optio maxime quisquam? Minus vitae non architecto distinctio eveniet, id est error possimus fugit veniam magnam quia natus nulla laboriosam? Molestiae optio eum omnis nam in consequatur facere ab temporibus officiis amet cum, voluptatibus, ipsam animi quisquam! Quae officiis dolorum soluta ipsam sit nam? Corrupti architecto officia vel, maxime facilis repellat eius laborum. Repellendus cumque similique sapiente quaerat maiores, porro modi nesciunt deserunt ducimus magni placeat atque perspiciatis commodi eaque repudiandae quae laudantium, ratione repellat velit, accusamus non! Alias eligendi sed, asperiores, ex consectetur praesentium vitae porro corporis in assumenda quos harum eaque facere consequatur at reprehenderit ullam?</p>
+      <div >
+        <Grid
+         container 
+         // spacing={5} 
+         columns={16}
+         sx={{boxShadow: 6}}>
+        <div style={{position:"relative"}} className={styles.bg}>
+
+            
+           
+
+            <div style={{position: "absolute", right:"0", marginTop:"150px", marginRight:"50px"}} className={styles.upDown}>
+            <Image 
+            height={100}
+                src={mouse}
+                alt=" contact image "
+            ></Image>
+            </div>
+            <div style={{position: "absolute", right:"0", bottom:"0", }} className={styles.upDownTwo}>
+            <Image 
+           
+                src={keyb}
+                alt=" contact image "
+            ></Image>
+            </div>
+          
+           <div  style={{marginTop:"300px", marginLeft:"50px"}}>
+           <div style={{marginBottom:"30px",}}>
+            <Typography
+            sx={{ textAlign: "start",  fontWeight: "bold", color: "#bcaaa4" }}
+            variant="h7"
+          >
+           A Smart Business  solutions.
+          </Typography>
+            </div>
+           <div>
+            <Typography
+            sx={{ textAlign: "start", fontWeight: "bold", color: "#ffffff" }}
+            variant="h4"
+          >
+           WE-SERVE  Dramatically maintain <br /> clicks-and-mortar solutions,  Business <br />
+            functional solutions.
+          </Typography>
+            </div>
+            <div>
+            <Button variant="outlined" sx={{color: "#ffffff"}}>
+  Check More
+</Button>
+            </div>
+          
+           </div>
+            
+
         </div>
+        </Grid>
+
+      </div>
     );
 };
 
