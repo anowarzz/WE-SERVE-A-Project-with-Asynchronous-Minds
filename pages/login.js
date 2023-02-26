@@ -94,13 +94,14 @@ const handleGoogleLogIn = () =>{
     <Box
       sx={{
         width: "100%",
-        margin: "50px auto",
+        margin: "100px auto",
         boxShadow: "inherit",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         height: "80vh",
         padding: "2rem",
+
       }}
     >
       <Stack width="400px" margin="auto">

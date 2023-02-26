@@ -16,6 +16,7 @@ const Footer = () => {
           display: "flex",
           marginX: 'auto',
           justifyContent: "space-between",
+          color:'white'
         }}
       >
         <Container>
@@ -72,12 +73,12 @@ const Footer = () => {
           <div>
             <Typography>
               <Link href="#" underline="none">
-                {"About Our Team Member"}
+                {"Our Team Member"}
               </Link>
             </Typography>
             <Typography>
               <Link href="#" underline="none">
-                {"About Our Working Policy"}
+                {"Our Working Policy"}
               </Link>
             </Typography>
             <Typography>
@@ -99,7 +100,7 @@ const Footer = () => {
         bgcolor: "#152B54",
         paddingY: "1rem"
       }}>
-        <Typography sx={{textAlign: 'center'}} variant="subtitle2">All Copyright Received by Asynchronous Minds team member.</Typography>
+        <Typography sx={{textAlign: 'center', color:'white'}} variant="subtitle2">All Copyright Received by Asynchronous Minds team member.</Typography>
       </Box>
     </>
   );

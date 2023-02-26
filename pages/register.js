@@ -24,7 +24,7 @@ import { AuthContext } from "@/contexts/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import GoogleIcon from "@mui/icons-material/Google";
 import { useRouter } from "next/router";
-import { AltRouteRounded } from "@mui/icons-material";
+import { AltRouteRounded, NearMe } from "@mui/icons-material";
 import { ScaleLoader } from "react-spinners";
 
 
@@ -85,7 +85,7 @@ const Register = () => {
       setError("");
       const user = result.user;
       console.log(user);
-      handleUpdateUserProfile();
+      handleUpdateUserProfile(userInfo?.name);
       setLoading(false)
       router.push("/");
     });
@@ -126,7 +126,7 @@ const Register = () => {
     <Box
       sx={{
         width: "100%",
-        margin: "50px auto",
+        margin: "80px auto 220px ",
         boxShadow: "inherit",
         display: "flex",
         justifyContent: "center",
