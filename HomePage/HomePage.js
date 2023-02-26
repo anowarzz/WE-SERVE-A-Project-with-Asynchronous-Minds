@@ -6,6 +6,7 @@ import Image from "next/image";
 import styles from './HomePage.module.css'
 import chatLogo from '../assets/chatLogo.png'
 import NewsLetter from "@/components/NewsLetter/NewsLetter";
+import AboutUs from "./AboutUs/AboutUs";
 
 const HomePage = () => {
     return (
@@ -14,6 +15,7 @@ const HomePage = () => {
         <Navbar/>
         <HeroSection />
         <ServicesSlider />
+        <AboutUs></AboutUs>
         <ContactForm></ContactForm>
         <div className={styles.chatLogo}>
         <Image 
