@@ -5,6 +5,7 @@ import  ContactForm  from '@/HomePage/ContactForm/ContactForm';
 import Image from "next/image";
 import styles from './HomePage.module.css'
 import chatLogo from '../assets/chatLogo.png'
+import NewsLetter from "@/components/NewsLetter/NewsLetter";
 
 const HomePage = () => {
     return (
@@ -25,6 +26,7 @@ const HomePage = () => {
         </div>
         </div>
          
+         <NewsLetter />
     
         </>
     );
