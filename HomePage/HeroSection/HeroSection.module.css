@@ -8,13 +8,28 @@
   background-repeat: no-repeat;
   
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   background-size:cover;
   background-position: center;
   object-fit: cover;
 
 
 }
+
+.pcmob{
+  display: flex;
+  position: relative;
+}
+.mob{
+  position: absolute;
+  right: -15%;
+}
+
+/* .keyboard{
+  position: absolute;
+  bottom: 5;
+  right: -5;
+} */
 
 .upDown {
     animation-name: upDownLoop;
@@ -38,19 +53,77 @@
   
 
   .upDownTwo {
-    animation-name: upDownLoop;
+    position: absolute;
+    bottom: -20%;
+    right: -5%;
+    animation-name: upDownLooptwo;
     animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-timing-function: ease;
     transition: all .3s;
+   
   }
 
-@keyframes upDownLoop {
+@keyframes upDownLooptwo {
     0% {
       transform: translateY(0px);
     }
     50% {
       transform: translateY(-40px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+
+  .upDownThree {
+    position: absolute;
+    bottom: -15%;
+    right: 40%;
+    animation-name: upDownLoopthree;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    transition: all .9s;
+   
+  }
+
+@keyframes upDownLoopthree {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-40px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  .consal{
+    position: absolute;
+    top: 15%;
+  }
+
+
+  .upDownFour {
+    position: absolute;
+    bottom: 35%;
+    right: 20%;
+    animation-name: upDownLoopfour;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    transition: all .7s;
+   
+  }
+
+@keyframes upDownLoopfour {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-30px);
     }
     100% {
       transform: translateY(0);
